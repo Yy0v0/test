@@ -1,3 +1,6 @@
+# ---- WorkBuddy 内部工作记录，不纳入版本管理 ----
+.workbuddy/
+
 # ---- OS ----
 Thumbs.db
 ehthumbs.db
