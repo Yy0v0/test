@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yy0v0 · 个人主页</title>
+<meta name="description" content="Yy0v0 的个人主页 —— 创客硬件、前端小工具与影像创作。">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:title" content="Yy0v0 · 个人主页">
+<meta property="og:description" content="创客硬件、前端小工具与影像创作。">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%232563eb'/%3E%3Ctext x='50' y='50' font-family='Segoe UI,sans-serif' font-size='54' font-weight='700' fill='white' text-anchor='middle' dominant-baseline='central'%3EY%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --ink:        #14181f;
+    --ink-soft:   #4a5462;
+    --ink-faint:  #8b95a5;
+    --line:       #e8ebf0;
+    --surface:    #ffffff;
+    --surface-2:  #f7f9fc;
+    --accent:     #2563eb;
+    --accent-soft:#eef3ff;
+    --radius:     14px;
+    --wrap:       860px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--surface);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                 "Hiragino Sans GB", "Microsoft YaHei", "Source Han Sans SC", sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 96px 0 72px; text-align: center; }
+
+  .monogram {
+    width: 84px; height: 84px; margin: 0 auto 26px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #2563eb, #4f46e5 60%, #7c3aed);
+    color: #fff;
+    font-size: 38px; font-weight: 700; letter-spacing: -.02em;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 12px 28px -12px rgba(37, 99, 235, .55);
+  }
+
+  .hero h1 {
+    margin: 0 0 12px;
+    font-size: clamp(30px, 5vw, 42px);
+    font-weight: 700;
+    letter-spacing: -.02em;
+  }
+
+  .hero .tagline {
+    margin: 0 auto;
+    max-width: 30em;
+    color: var(--ink-soft);
+    font-size: 17px;
+  }
+
+  .chips {
+    margin-top: 26px;
+    display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+  }
+
+  .chip {
+    padding: 5px 13px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface-2);
+    color: var(--ink-soft);
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+
+  /* ---------- Sections ---------- */
+  section { padding: 8px 0 56px; }
+
+  h2 {
+    margin: 0 0 22px;
+    font-size: 21px;
+    font-weight: 650;
+    letter-spacing: -.01em;
+    display: flex; align-items: center; gap: 11px;
+  }
+
+  h2::before {
+    content: "";
+    width: 4px; height: 19px; border-radius: 2px;
+    background: var(--accent);
+    flex: none;
+  }
+
+  p { margin: 0 0 14px; color: var(--ink-soft); }
+  p:last-child { margin-bottom: 0; }
+
+  /* ---------- Skills ---------- */
+  .skill-group { margin-bottom: 22px; }
+  .skill-group:last-child { margin-bottom: 0; }
+
+  .skill-group h3 {
+    margin: 0 0 11px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-faint);
+    letter-spacing: .02em;
+  }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 9px; }
+
+  .tag {
+    padding: 6px 14px;
+    border-radius: 9px;
+    background: var(--accent-soft);
+    color: #1d4ed8;
+    font-size: 14px;
+    line-height: 1.6;
+    transition: transform .18s ease, background .18s ease;
+  }
+  .tag:hover { transform: translateY(-2px); background: #e2ebff; }
+
+  /* ---------- Projects ---------- */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(248px, 1fr));
+    gap: 16px;
+  }
+
+  .card {
+    display: block;
+    padding: 22px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+    text-decoration: none;
+    color: inherit;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: #d5ddea;
+    box-shadow: 0 14px 30px -18px rgba(20, 24, 31, .28);
+  }
+
+  .card h3 {
+    margin: 0 0 8px;
+    font-size: 16.5px;
+    font-weight: 650;
+    letter-spacing: -.01em;
+  }
+
+  .card p { margin: 0; font-size: 14.5px; }
+
+  .card .meta {
+    margin-top: 14px;
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+
+  .card .meta span {
+    padding: 3px 9px;
+    border-radius: 6px;
+    background: var(--surface-2);
+    color: var(--ink-faint);
+    font-size: 12.5px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    border-top: 1px solid var(--line);
+    margin-top: 16px;
+    padding: 28px 0 40px;
+    color: var(--ink-faint);
+    font-size: 13.5px;
+    text-align: center;
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal { opacity: 0; transform: translateY(14px); }
+  .reveal.in { opacity: 1; transform: none; transition: opacity .55s ease, transform .55s ease; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal, .reveal.in { opacity: 1; transform: none; transition: none; }
+    .card, .tag { transition: none; }
+  }
+
+  @media (max-width: 560px) {
+    .hero { padding: 68px 0 52px; }
+    section { padding-bottom: 44px; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="hero wrap">
+    <div class="monogram" aria-hidden="true">Y</div>
+    <h1>Yy0v0</h1>
+    <p class="tagline">喜欢把想法做成能跑起来的东西 —— 从电路板到小游戏，从教学工具到影像剪辑。</p>
+    <div class="chips">
+      <span class="chip">创客硬件</span>
+      <span class="chip">前端小工具</span>
+      <span class="chip">影像创作</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section id="about" class="reveal">
+      <h2>关于我</h2>
+      <p>你好，我是 Yy0v0。日常在嵌入式与创客硬件、前端小工具、视频后期这三块之间来回折腾，习惯用代码去解决身边那些具体而琐碎的问题。</p>
+      <p>做东西的时候偏爱「先让它跑起来，再慢慢打磨」——所以我的项目通常从一个能用的原型开始，然后一轮轮改细节，直到交互和观感都顺眼为止。</p>
+    </section>
+
+    <section id="skills" class="reveal">
+      <h2>技能</h2>
+
+      <div class="skill-group">
+        <h3>硬件 / 创客</h3>
+        <div class="tags">
+          <span class="tag">Mixly</span>
+          <span class="tag">行空板</span>
+          <span class="tag">EasyEDA Pro</span>
+          <span class="tag">PCB 设计</span>
+          <span class="tag">舵机控制</span>
+          <span class="tag">3D 建模</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>编程</h3>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">HTML / CSS</span>
+          <span class="tag">Node.js</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>创作</h3>
+        <div class="tags">
+          <span class="tag">剪映</span>
+          <span class="tag">分镜设计</span>
+          <span class="tag">视频后期</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="reveal">
+      <h2>项目</h2>
+      <div class="cards">
+
+        <a class="card" href="#">
+          <h3>英语闯关游戏</h3>
+          <p>单页 HTML 小游戏，用 localStorage 做本地存档，包含配对闯关、商店与个人资料等模块。</p>
+          <div class="meta"><span>HTML</span><span>JavaScript</span><span>小游戏</span></div>
+        </a>
+
+        <a class="card" href="#">
+          <h3>凑十法 / 破十法练习</h3>
+          <p>面向小学生的数学练习网页，用树形图把「拆分 — 凑十 — 加余数」的解题过程可视化呈现。</p>
+          <div class="meta"><span>教学工具</span><span>可视化</span><span>前端</span></div>
+        </a>
+
+        <a class="card" href="#">
+          <h3>PCB 自动化工具链</h3>
+          <p>基于 EasyEDA Pro 的脚本工具集，用于批量构建与检查 LED 模块等电路，减少重复手工操作。</p>
+          <div class="meta"><span>EasyEDA</span><span>自动化</span><span>硬件</span></div>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="wrap">
+    <div>© <span id="year">2026</span> Yy0v0</div>
+  </footer>
+
+<script>
+  // 年份自动更新
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // 滚动淡入
+  var items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    items.forEach(function (el) { io.observe(el); });
+  } else {
+    items.forEach(function (el) { el.classList.add('in'); });
+  }
+</script>
+
+</body>
+</html>
